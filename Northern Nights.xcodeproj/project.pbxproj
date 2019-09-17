@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,13 +14,21 @@
 		4E207B67232E54BE00ED64EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E207B65232E54BE00ED64EF /* LaunchScreen.storyboard */; };
 		4E207B72232E5B1F00ED64EF /* LineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207B71232E5B1F00ED64EF /* LineButton.swift */; };
 		4E207B74232E5B5700ED64EF /* ExtensionUivew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207B73232E5B5700ED64EF /* ExtensionUivew.swift */; };
+		4E71442223311CB300030B65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E71442123311CB300030B65 /* GoogleService-Info.plist */; };
+		4E71442423311D1300030B65 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71442323311D1300030B65 /* ProfileVC.swift */; };
 		4E7AB1AB2331055800B4912B /* ExtensionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */; };
 		4E7AB1AD2331066700B4912B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AC2331066700B4912B /* LoginVC.swift */; };
+		4E7AB1AF2331092E00B4912B /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AE2331092E00B4912B /* ResetPasswordVC.swift */; };
+		4E7AB1B123310B5500B4912B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1B023310B5500B4912B /* HomeVC.swift */; };
+		4E7AB1B323310B6F00B4912B /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1B223310B6F00B4912B /* BaseCollectionVC.swift */; };
+		4E7AB1B523310D0500B4912B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1B423310D0500B4912B /* HomeCell.swift */; };
 		4E7F3C70232E69540029996A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F3C6F232E69540029996A /* SignUpVC.swift */; };
 		4E7F3C72232E69D30029996A /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F3C71232E69D30029996A /* BaseVC.swift */; };
+		DD3A0EACB5C58F399EF0395C /* Pods_Northern_Nights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B956CD0AEEC886AE542C69 /* Pods_Northern_Nights.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0771C268817BF849FE9D0058 /* Pods-Northern Nights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Northern Nights.release.xcconfig"; path = "Target Support Files/Pods-Northern Nights/Pods-Northern Nights.release.xcconfig"; sourceTree = "<group>"; };
 		4E207B59232E54BD00ED64EF /* Northern Nights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Northern Nights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E207B5C232E54BD00ED64EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E207B5E232E54BD00ED64EF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -30,10 +38,18 @@
 		4E207B68232E54BE00ED64EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E207B71232E5B1F00ED64EF /* LineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineButton.swift; sourceTree = "<group>"; };
 		4E207B73232E5B5700ED64EF /* ExtensionUivew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUivew.swift; sourceTree = "<group>"; };
+		4E71442123311CB300030B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4E71442323311D1300030B65 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsVC.swift; sourceTree = "<group>"; };
 		4E7AB1AC2331066700B4912B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		4E7AB1AE2331092E00B4912B /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		4E7AB1B023310B5500B4912B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		4E7AB1B223310B6F00B4912B /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
+		4E7AB1B423310D0500B4912B /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		4E7F3C6F232E69540029996A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		4E7F3C71232E69D30029996A /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		75BE92559AB016AC8241D098 /* Pods-Northern Nights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Northern Nights.debug.xcconfig"; path = "Target Support Files/Pods-Northern Nights/Pods-Northern Nights.debug.xcconfig"; sourceTree = "<group>"; };
+		C3B956CD0AEEC886AE542C69 /* Pods_Northern_Nights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Northern_Nights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +57,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3A0EACB5C58F399EF0395C /* Pods_Northern_Nights.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CD07B3FE65B82D324B57223 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75BE92559AB016AC8241D098 /* Pods-Northern Nights.debug.xcconfig */,
+				0771C268817BF849FE9D0058 /* Pods-Northern Nights.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4E207B50232E54BD00ED64EF = {
 			isa = PBXGroup;
 			children = (
 				4E207B5B232E54BD00ED64EF /* Northern Nights */,
 				4E207B5A232E54BD00ED64EF /* Products */,
+				2CD07B3FE65B82D324B57223 /* Pods */,
+				534D1F056BD31FA5051F4E5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,7 +111,10 @@
 			isa = PBXGroup;
 			children = (
 				4E7F3C71232E69D30029996A /* BaseVC.swift */,
+				4E7AB1B223310B6F00B4912B /* BaseCollectionVC.swift */,
 				4E7F3C73232E69DB0029996A /* Registration */,
+				4E7AB1B023310B5500B4912B /* HomeVC.swift */,
+				4E71442323311D1300030B65 /* ProfileVC.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -92,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4E207B71232E5B1F00ED64EF /* LineButton.swift */,
+				4E7AB1B423310D0500B4912B /* HomeCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -106,6 +138,7 @@
 		4E7AB1A92331054400B4912B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4E71442123311CB300030B65 /* GoogleService-Info.plist */,
 				4E207B73232E5B5700ED64EF /* ExtensionUivew.swift */,
 				4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */,
 			);
@@ -118,8 +151,17 @@
 				4E207B5E232E54BD00ED64EF /* WelcomeVC.swift */,
 				4E7F3C6F232E69540029996A /* SignUpVC.swift */,
 				4E7AB1AC2331066700B4912B /* LoginVC.swift */,
+				4E7AB1AE2331092E00B4912B /* ResetPasswordVC.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		534D1F056BD31FA5051F4E5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3B956CD0AEEC886AE542C69 /* Pods_Northern_Nights.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E207B6B232E54BE00ED64EF /* Build configuration list for PBXNativeTarget "Northern Nights" */;
 			buildPhases = (
+				8BD31F5225F616DA3F864D09 /* [CP] Check Pods Manifest.lock */,
 				4E207B55232E54BD00ED64EF /* Sources */,
 				4E207B56232E54BD00ED64EF /* Frameworks */,
 				4E207B57232E54BD00ED64EF /* Resources */,
+				4E54E553FAD5BAFDACBD72E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E207B67232E54BE00ED64EF /* LaunchScreen.storyboard in Resources */,
+				4E71442223311CB300030B65 /* GoogleService-Info.plist in Resources */,
 				4E207B64232E54BE00ED64EF /* Assets.xcassets in Resources */,
 				4E207B62232E54BD00ED64EF /* Main.storyboard in Resources */,
 			);
@@ -188,18 +233,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E54E553FAD5BAFDACBD72E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Northern Nights/Pods-Northern Nights-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Northern Nights/Pods-Northern Nights-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Northern Nights/Pods-Northern Nights-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BD31F5225F616DA3F864D09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Northern Nights-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4E207B55232E54BD00ED64EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4E207B74232E5B5700ED64EF /* ExtensionUivew.swift in Sources */,
+				4E7AB1B123310B5500B4912B /* HomeVC.swift in Sources */,
+				4E7AB1B323310B6F00B4912B /* BaseCollectionVC.swift in Sources */,
 				4E7F3C72232E69D30029996A /* BaseVC.swift in Sources */,
 				4E7AB1AD2331066700B4912B /* LoginVC.swift in Sources */,
 				4E207B5F232E54BD00ED64EF /* WelcomeVC.swift in Sources */,
 				4E207B5D232E54BD00ED64EF /* AppDelegate.swift in Sources */,
+				4E7AB1AF2331092E00B4912B /* ResetPasswordVC.swift in Sources */,
+				4E71442423311D1300030B65 /* ProfileVC.swift in Sources */,
 				4E7F3C70232E69540029996A /* SignUpVC.swift in Sources */,
 				4E207B72232E5B1F00ED64EF /* LineButton.swift in Sources */,
+				4E7AB1B523310D0500B4912B /* HomeCell.swift in Sources */,
 				4E7AB1AB2331055800B4912B /* ExtensionsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +436,7 @@
 		};
 		4E207B6C232E54BE00ED64EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75BE92559AB016AC8241D098 /* Pods-Northern Nights.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +455,7 @@
 		};
 		4E207B6D232E54BE00ED64EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0771C268817BF849FE9D0058 /* Pods-Northern Nights.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

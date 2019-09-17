@@ -50,14 +50,14 @@ class LoginVC: BaseVC {
         return v
     }()
     lazy var loginButton = createButtons(title: "Login", selector: #selector(handleLogin), color: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1), borderColor: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1).cgColor)
-    
+    lazy var forgetPasswordButton = createButtons(title: "Forget Password?", selector: #selector(handleForget), color: UIColor.clear, borderColor: UIColor.clear.cgColor)
     override func setupViews()  {
         view.backgroundColor = .white
         
         
         let emailStack = groupedStack(image: #imageLiteral(resourceName: "email") , text: emailTextField)
         let passwordStack = groupedStack(image: #imageLiteral(resourceName: "lock") , text: passwordTextField)
-        view.addSubViews(views: mainImageView,emailStack,dividersView[0],passwordStack,dividersView[1],loginButton)
+        view.addSubViews(views: mainImageView,emailStack,dividersView[0],passwordStack,dividersView[1],loginButton,forgetPasswordButton)
         
         mainImageView.fillSuperview()
         emailStack.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 40, left: 16, bottom: 0, right: 16))
@@ -68,6 +68,7 @@ class LoginVC: BaseVC {
        
         
         loginButton.anchor(top: dividersView[1].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+         forgetPasswordButton.anchor(top: loginButton.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
     }
     
     override func setupNavitagionItems() {
@@ -83,5 +84,10 @@ class LoginVC: BaseVC {
     
     @objc  func handleLogin()  {
         print(123)
+    }
+    
+    @objc  func handleForget()  {
+        let reset = ResetPasswordVC()
+        navigationController?.pushViewController(reset, animated: true)
     }
 }

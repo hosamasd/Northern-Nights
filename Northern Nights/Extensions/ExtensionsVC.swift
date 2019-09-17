@@ -42,3 +42,25 @@ extension UIViewController {
         return sub
     }
 }
+
+extension UICollectionViewCell {
+    func createButtons(title: String,image:UIImage? = UIImage(),selector: Selector,color:UIColor,borderColor:CGColor) -> UIButton {
+        let bt = UIButton()
+        bt.setTitle(title, for: .normal)
+        bt.setImage(image, for: .normal)
+        bt.imageView?.contentMode = .scaleAspectFit
+       
+        bt.imageView?.layer.cornerRadius = 24
+         bt.imageView?.clipsToBounds = true
+        bt.imageEdgeInsets = .init(top: 0, left: -10, bottom: 0, right: 0)
+        bt.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
+        bt.addTarget(self, action: selector, for: .touchUpInside)
+        bt.layer.cornerRadius = 8
+//        bt.backgroundColor = color
+        bt.titleLabel?.textColor = .white
+        bt.constrainHeight(constant: 40)
+        bt.layer.borderWidth = 2
+        bt.layer.borderColor = borderColor
+        return bt
+    }
+}
