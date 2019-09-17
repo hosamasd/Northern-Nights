@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKLoginKit
+import GoogleSignIn
 
 class WelcomeVC: BaseVC {
     
@@ -22,6 +25,11 @@ class WelcomeVC: BaseVC {
     lazy var signWithGoogle = createButtons(title: "SIGN IN WITH Google", image: #imageLiteral(resourceName: "google"), selector: #selector(handleSignGoogle), color: #colorLiteral(red: 0.8117647059, green: 0.3960784314, blue: 0.3019607843, alpha: 1), borderColor: #colorLiteral(red: 0.8117647059, green: 0.3960784314, blue: 0.3019607843, alpha: 1).cgColor)
     lazy var createAccount = createButtons(title: "Create An Account", selector: #selector(handleCreateAccount), color: UIColor.black, borderColor: UIColor.white.cgColor)
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.uiDelegate = self
+    }
    
     override func setupViews()  {
         let groupButtons = view.verticalStackView(arragedSubViews: signWithEmail,signWithFacebook,signWithGoogle, spacing: 10, distribution: .fillEqually, axis: .vertical)
@@ -50,7 +58,35 @@ class WelcomeVC: BaseVC {
     }
     
     @objc func handleSignFacebook()  {
-        print(026)
+        let fbLoginManager = LoginManager()
+        fbLoginManager.logIn(permissions: ["email","public_profile"], from: self) { (res, err) in
+            if let err = err {
+                print(err.localizedDescription);return
+            }
+            guard let token = AccessToken.current else {print("failed to get token"); return}
+            
+            let credintal = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
+            
+            // Perform login by calling Firebase APIs
+//            Auth.auth().signIn(with: credintal, completion: { (user, error) in
+//                if let error = error {
+//                    print("Login error: \(error.localizedDescription)")
+//                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+//                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//                    alertController.addAction(okayAction)
+//                    self.present(alertController, animated: true, completion: nil)
+//                    
+//                    return
+//                }
+//                
+//                // Present the main view
+//                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
+//                    UIApplication.shared.keyWindow?.rootViewController = viewController
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//                
+//            })
+        }
     }
     
     @objc func handleCreateAccount()  {
@@ -60,3 +96,40 @@ class WelcomeVC: BaseVC {
     }
 }
 
+extension WelcomeVC:GIDSignInDelegate,GIDSignInUIDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if error != nil {
+            return
+        }
+        
+        guard let authentication = user.authentication else {
+            return
+        }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credential, completion: { (user, error) in
+            if let error = error {
+                print("Login error: \(error.localizedDescription)")
+                let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+                let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(okayAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+                return
+            }
+            
+//            // Present the main view
+//            if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
+//                UIApplication.shared.keyWindow?.rootViewController = viewController
+//                self.dismiss(animated: true, completion: nil)
+//            }
+        })
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
+}

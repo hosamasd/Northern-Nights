@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,17 +19,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        customizeUIStyle()
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         FirebaseApp.configure()
+        
+        // Configure Google Sign in
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
         window = UIWindow()
         window?.makeKeyAndVisible()
-//        window?.rootViewController = WelcomeVC()
-        let layout = UICollectionViewFlowLayout()
-         window?.rootViewController = UINavigationController(rootViewController: HomeVC(collectionViewLayout: layout))
+        window?.rootViewController = WelcomeVC()
+//        let layout = UICollectionViewFlowLayout()
+//         window?.rootViewController = UINavigationController(rootViewController: HomeVC(collectionViewLayout: layout))
         return true
     }
 
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        var handled = false
+        
+        if url.absoluteString.contains("fb") {
+            handled = ApplicationDelegate.shared.application(app, open: url, options: options)
+            
+        } else {
+            handled = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+        }
+        
+        return handled
+    
+        
+    }
+    
+
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -53,3 +78,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate{
+    func customizeUIStyle() {
+        
+        // Customize Navigation bar items
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 16), .foregroundColor: UIColor.white], for: UIControl.State.normal)
+    }
+}

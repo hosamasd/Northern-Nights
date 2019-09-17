@@ -176,6 +176,7 @@
 				4E207B56232E54BD00ED64EF /* Frameworks */,
 				4E207B57232E54BD00ED64EF /* Resources */,
 				4E54E553FAD5BAFDACBD72E6 /* [CP] Embed Pods Frameworks */,
+				76B76ADBDBFD3DAB8147113F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +250,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Northern Nights/Pods-Northern Nights-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76B76ADBDBFD3DAB8147113F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Northern Nights/Pods-Northern Nights-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Northern Nights/Pods-Northern Nights-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Northern Nights/Pods-Northern Nights-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8BD31F5225F616DA3F864D09 /* [CP] Check Pods Manifest.lock */ = {
