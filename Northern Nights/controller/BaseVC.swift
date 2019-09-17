@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaseVC.swift
 //  Northern Nights
 //
 //  Created by hosam on 9/15/19.
@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class BaseVC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupViews()
+        setupNavitagionItems()
     }
-
-
+    
+    func setupViews()  {
+    }
+    
+    func setupNavitagionItems()  {
+    }
 }
-

@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		4E207B5D232E54BD00ED64EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207B5C232E54BD00ED64EF /* AppDelegate.swift */; };
-		4E207B5F232E54BD00ED64EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207B5E232E54BD00ED64EF /* ViewController.swift */; };
+		4E207B5F232E54BD00ED64EF /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207B5E232E54BD00ED64EF /* WelcomeVC.swift */; };
 		4E207B62232E54BD00ED64EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E207B60232E54BD00ED64EF /* Main.storyboard */; };
 		4E207B64232E54BE00ED64EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E207B63232E54BE00ED64EF /* Assets.xcassets */; };
 		4E207B67232E54BE00ED64EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E207B65232E54BE00ED64EF /* LaunchScreen.storyboard */; };
+		4E207B72232E5B1F00ED64EF /* LineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207B71232E5B1F00ED64EF /* LineButton.swift */; };
+		4E207B74232E5B5700ED64EF /* ExtensionUivew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207B73232E5B5700ED64EF /* ExtensionUivew.swift */; };
+		4E7AB1AB2331055800B4912B /* ExtensionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */; };
+		4E7AB1AD2331066700B4912B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AC2331066700B4912B /* LoginVC.swift */; };
+		4E7F3C70232E69540029996A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F3C6F232E69540029996A /* SignUpVC.swift */; };
+		4E7F3C72232E69D30029996A /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F3C71232E69D30029996A /* BaseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4E207B59232E54BD00ED64EF /* Northern Nights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Northern Nights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E207B5C232E54BD00ED64EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E207B5E232E54BD00ED64EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4E207B5E232E54BD00ED64EF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		4E207B61232E54BD00ED64EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E207B63232E54BE00ED64EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E207B66232E54BE00ED64EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E207B68232E54BE00ED64EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E207B71232E5B1F00ED64EF /* LineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineButton.swift; sourceTree = "<group>"; };
+		4E207B73232E5B5700ED64EF /* ExtensionUivew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUivew.swift; sourceTree = "<group>"; };
+		4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsVC.swift; sourceTree = "<group>"; };
+		4E7AB1AC2331066700B4912B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		4E7F3C6F232E69540029996A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		4E7F3C71232E69D30029996A /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +67,59 @@
 			isa = PBXGroup;
 			children = (
 				4E207B5C232E54BD00ED64EF /* AppDelegate.swift */,
-				4E207B5E232E54BD00ED64EF /* ViewController.swift */,
+				4E207B70232E54D800ED64EF /* model */,
+				4E207B6F232E54D000ED64EF /* view */,
+				4E207B6E232E54C700ED64EF /* controller */,
 				4E207B60232E54BD00ED64EF /* Main.storyboard */,
 				4E207B63232E54BE00ED64EF /* Assets.xcassets */,
 				4E207B65232E54BE00ED64EF /* LaunchScreen.storyboard */,
 				4E207B68232E54BE00ED64EF /* Info.plist */,
+				4E7AB1A92331054400B4912B /* Extensions */,
 			);
 			path = "Northern Nights";
+			sourceTree = "<group>";
+		};
+		4E207B6E232E54C700ED64EF /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E7F3C71232E69D30029996A /* BaseVC.swift */,
+				4E7F3C73232E69DB0029996A /* Registration */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4E207B6F232E54D000ED64EF /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4E207B71232E5B1F00ED64EF /* LineButton.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4E207B70232E54D800ED64EF /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4E7AB1A92331054400B4912B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4E207B73232E5B5700ED64EF /* ExtensionUivew.swift */,
+				4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4E7F3C73232E69DB0029996A /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				4E207B5E232E54BD00ED64EF /* WelcomeVC.swift */,
+				4E7F3C6F232E69540029996A /* SignUpVC.swift */,
+				4E7AB1AC2331066700B4912B /* LoginVC.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E207B5F232E54BD00ED64EF /* ViewController.swift in Sources */,
+				4E207B74232E5B5700ED64EF /* ExtensionUivew.swift in Sources */,
+				4E7F3C72232E69D30029996A /* BaseVC.swift in Sources */,
+				4E7AB1AD2331066700B4912B /* LoginVC.swift in Sources */,
+				4E207B5F232E54BD00ED64EF /* WelcomeVC.swift in Sources */,
 				4E207B5D232E54BD00ED64EF /* AppDelegate.swift in Sources */,
+				4E7F3C70232E69540029996A /* SignUpVC.swift in Sources */,
+				4E207B72232E5B1F00ED64EF /* LineButton.swift in Sources */,
+				4E7AB1AB2331055800B4912B /* ExtensionsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
