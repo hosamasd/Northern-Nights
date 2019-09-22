@@ -72,16 +72,5 @@ class UserServices {
         
     }
     
-//    func updateImageUrlFromFirebase(fromId:String,completion: @escaping (Error?)->())  {
-//        let vals:[String:Any] = ["votes":number]
-//        Database.database().reference(withPath: "Users").child(fromId).updateChildValues(vals, withCompletionBlock: { (err, ref) in
-//            if let err = err {
-//                completion(err);return
-//
-//            }
-//            completion(nil)
-//        })
-//    }
-    
     
 }

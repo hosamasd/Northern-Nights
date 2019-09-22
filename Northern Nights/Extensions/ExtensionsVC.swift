@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import ProgressHUD
 
 extension UIViewController {
     
     func goToHomeVC()  {
+        ProgressHUD.dismiss()
         let layout = UICollectionViewFlowLayout()
         let home = HomeFeedVC(collectionViewLayout: layout)
         let nav = UINavigationController(rootViewController: home)
+        
         present(nav, animated: true)
     }
     

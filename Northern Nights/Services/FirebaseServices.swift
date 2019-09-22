@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
-
+import ProgressHUD
 
 class FirebaseServices {
     static let shared = FirebaseServices()
@@ -38,6 +38,14 @@ class FirebaseServices {
         }
     }
     
+    func genericErrorReturned(err: Error?,completion: @escaping (Error?)->() )  {
+        if let err = err {
+            completion(err); return
+        }
+        
+        completion(nil)
+    }
+    
     func signUpFirebase(email: String,name: String,passowrd: String,completion: @escaping (Error?)->())  {
         Auth.auth().createUser(withEmail: email, password: passowrd) { (user, err) in
             if let err = err {
@@ -54,11 +62,8 @@ class FirebaseServices {
         var values:[String:Any] = ["email":email, "uid":uid, "name":name]
         
         Database.database().reference(withPath: "Users").child(uid).updateChildValues(values) { (err, ref) in
-            if let err = err {
-                completion(err); return
-            }
             
-            completion(nil)
+            self.genericErrorReturned(err: err, completion: completion)
             
         }
         
@@ -66,11 +71,8 @@ class FirebaseServices {
     
     func resetPassword(email:String,completion: @escaping (Error?)->()) {
         Auth.auth().sendPasswordReset(withEmail: email) { (err) in
-            if let err = err {
-                completion(err)
-                return
-            }
-            completion(nil)
+            
+            self.genericErrorReturned(err: err, completion: completion)
         }
     }
     
@@ -90,6 +92,7 @@ class FirebaseServices {
             if let err = err{
                 completion(err);return
             }
+            completion(nil)
         }
     }
     
@@ -122,7 +125,6 @@ class FirebaseServices {
                     let email = data?["email"] as? String ?? ""
                     let username = data?["name"] as? String ?? ""
                     self.manipulateDataInFirebase(uid: FirebaseUId, email: email, name: username, completion: completion)
-                    //                    ref.child("users").child(self.FirebaseUId).setValue(userInfo)
                     
                 }
                 
@@ -132,10 +134,8 @@ class FirebaseServices {
     
     func loginFirebase(email:String,pass:String,completion: @escaping (Error?)->())  {
         Auth.auth().signIn(withEmail: email, password: pass) { (res, err) in
-            if let err = err {
-                completion(err); return
-            }
-            completion(nil)
+            
+            self.genericErrorReturned(err: err, completion: completion)
         }
     }
     

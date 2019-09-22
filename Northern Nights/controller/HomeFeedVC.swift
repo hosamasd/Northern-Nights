@@ -8,6 +8,7 @@
 
 import UIKit
 import ImagePicker
+import ProgressHUD
 
 class HomeFeedVC: BaseCollectionVC {
     
@@ -47,6 +48,7 @@ class HomeFeedVC: BaseCollectionVC {
      //MARK: -user methods
     
    fileprivate func  fetchPosts ()  {
+    ProgressHUD.show("wait until reterive data....")
         postsArray.removeAll()
 //        PostssServices.postssServices.fetchPostsFromDatabase(fromId: UserServices.uerServices.currentUserId)
         PostssServices.postssServices.fetchPostsFromDatabase(fromId: UserServices.uerServices.currentUserId) { (post) in
@@ -57,6 +59,7 @@ class HomeFeedVC: BaseCollectionVC {
    fileprivate func  sortArray(post:PostModel)  {
         postsArray.append(post)
         postsArray = postsArray.sorted(by: {$0.timestamp > $1.timestamp})
+    ProgressHUD.dismiss()
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -104,10 +107,13 @@ extension HomeFeedVC:ImagePickerDelegate {
             
             return
         }
+         ProgressHUD.show("Uploading.....")
         PostssServices.postssServices.sendMessagesToFirebase(image: image, fromId: UserServices.uerServices.currentUserId) {[weak self] (err) in
             if let err = err{
-                self?.createAlert(title: "Error", message: err.localizedDescription);return
+//                self?.createAlert(title: "Error", message: err.localizedDescription);return
+                ProgressHUD.showError(err.localizedDescription); return
             }
+            ProgressHUD.dismiss()
             self?.dismiss(animated: true)
         }
         

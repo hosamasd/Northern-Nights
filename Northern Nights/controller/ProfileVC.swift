@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ProgressHUD
 
 class ProfileVC: BaseVC {
     
@@ -94,10 +94,12 @@ class ProfileVC: BaseVC {
     }
     
     @objc func handleLogout()  {
+        ProgressHUD.show("Logout Confirmed!")
         FirebaseServices.shared.LogOut {[weak self] (err) in
             if let err = err{
                 self?.showErrorFields(message: err.localizedDescription)
             }
+            ProgressHUD.dismiss()
             self?.present(WelcomeVC(), animated: true)
         }
     }
@@ -120,10 +122,11 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
         if let img = info[.editedImage] as? UIImage {
             profileImageView.image = img
         }
-        
+       
         UserServices.uerServices.uploadUserImage(uid: uid, image: profileImageView.image ?? UIImage()) { (err) in
             if let err = err {
-                print(err.localizedDescription);return
+//                print(err.localizedDescription);return
+                    ProgressHUD.showError(err.localizedDescription); return
             }
             self.loadUserInfo()
         }

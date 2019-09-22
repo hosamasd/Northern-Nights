@@ -13,64 +13,6 @@ class PostssServices {
     
     static let postssServices = PostssServices()
     
-    //     func uploadImage(uid:String,image: UIImage,completion: @escaping ([String:Any]?,Error?)->())  {
-    //    // Generate a unique ID for the post and prepare the post database reference
-    //    let postDatabaseRef = POST_DB_REF.childByAutoId()
-    //
-    //    // Use the unique key as the image name and prepare the storage reference
-    //    let imageStorageRef = PHOTO_STORAGE_REF.child("\(postDatabaseRef.key).jpg")
-    //
-    //    // Resize the image
-    //    let scaledImage = image.scale(newWidth: 640.0)
-    //
-    //    guard let imageData = image.jpegData(compressionQuality: 0.9) else {
-    //    return
-    //    }
-    //
-    //    // Create the file metadata
-    //    let metadata = StorageMetadata()
-    //    metadata.contentType = "image/jpg"
-    //
-    //    // Prepare the upload task
-    //    let uploadTask = imageStorageRef.putData(imageData, metadata: metadata)
-    //
-    //    // Observe the upload status
-    //    uploadTask.observe(.success) { (snapshot) in
-    //
-    //    guard let displayName = Auth.auth().currentUser?.displayName else {
-    //    return
-    //    }
-    //
-    //    // Add a reference in the database
-    //    if let imageFileURL = snapshot.metadata?.downloadURL()?.absoluteString {
-    //    let timestamp = Int(NSDate().timeIntervalSince1970 * 1000)
-    //
-    //    let post: [String : Any] = [Post.PostInfoKey.imageFileURL : imageFileURL,
-    //    Post.PostInfoKey.votes : Int(0),
-    //    Post.PostInfoKey.user : displayName,
-    //    Post.PostInfoKey.timestamp : timestamp
-    //    ]
-    //
-    //    postDatabaseRef.setValue(post)
-    //    }
-    //
-    //    completionHandler()
-    //    }
-    //
-    //    uploadTask.observe(.progress) { (snapshot) in
-    //
-    //    let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
-    //    print("Uploading... \(percentComplete)% complete")
-    //    }
-    //
-    //    uploadTask.observe(.failure) { (snapshot) in
-    //
-    //    if let error = snapshot.error {
-    //    print(error.localizedDescription)
-    //    }
-    //    }
-    //}
-    
     func uploadImage(uid:String,image: UIImage,completion: @escaping ([String:Any]?,Error?)->())  {
         let date = Date().timeIntervalSince1970
         // Resize the image

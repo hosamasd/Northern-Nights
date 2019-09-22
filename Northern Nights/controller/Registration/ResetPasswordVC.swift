@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ResetPasswordVC: BaseVC {
     
@@ -69,13 +70,16 @@ class ResetPasswordVC: BaseVC {
      //TODO: -handle methods
     
     @objc fileprivate func handleReset()  {
+        ProgressHUD.show()
         guard let email = emailTextField.text, !email.isEmpty else {showErrorFields(message: "email field should be filled!") ;  return  }
         
         FirebaseServices.shared.resetPassword(email: email) { [weak self] (err) in
             if let err=err{
-                self?.showErrorFields(message: err.localizedDescription) ; return
+//                self?.showErrorFields(message: err.localizedDescription) ; return
+                 ProgressHUD.showError(err.localizedDescription) ; return
             }
-            self?.createAlert(title: "Successfual", message: "we sent an message to your email \n please check it")
+//            self?.createAlert(title: "Successfual", message: "we sent an message to your email \n please check it")
+            ProgressHUD.show("we sent an message to your email \n please check it")
         }
     }
     
