@@ -19,11 +19,16 @@
 		4E7AB1AB2331055800B4912B /* ExtensionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */; };
 		4E7AB1AD2331066700B4912B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AC2331066700B4912B /* LoginVC.swift */; };
 		4E7AB1AF2331092E00B4912B /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1AE2331092E00B4912B /* ResetPasswordVC.swift */; };
-		4E7AB1B123310B5500B4912B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1B023310B5500B4912B /* HomeVC.swift */; };
+		4E7AB1B123310B5500B4912B /* HomeFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1B023310B5500B4912B /* HomeFeedVC.swift */; };
 		4E7AB1B323310B6F00B4912B /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1B223310B6F00B4912B /* BaseCollectionVC.swift */; };
 		4E7AB1B523310D0500B4912B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB1B423310D0500B4912B /* HomeCell.swift */; };
 		4E7F3C70232E69540029996A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F3C6F232E69540029996A /* SignUpVC.swift */; };
 		4E7F3C72232E69D30029996A /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F3C71232E69D30029996A /* BaseVC.swift */; };
+		4E81DC1723323ADC00CDF09D /* PostssServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E81DC1623323ADC00CDF09D /* PostssServices.swift */; };
+		4E81DC1923323B3B00CDF09D /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E81DC1823323B3B00CDF09D /* PostModel.swift */; };
+		4E81DC1B23323BBA00CDF09D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E81DC1A23323BBA00CDF09D /* UserModel.swift */; };
+		4E81DC1D233241DA00CDF09D /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E81DC1C233241DA00CDF09D /* UserServices.swift */; };
+		4E9AD583233210550073C59B /* FirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD582233210550073C59B /* FirebaseServices.swift */; };
 		DD3A0EACB5C58F399EF0395C /* Pods_Northern_Nights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B956CD0AEEC886AE542C69 /* Pods_Northern_Nights.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,11 +48,16 @@
 		4E7AB1AA2331055800B4912B /* ExtensionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsVC.swift; sourceTree = "<group>"; };
 		4E7AB1AC2331066700B4912B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		4E7AB1AE2331092E00B4912B /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
-		4E7AB1B023310B5500B4912B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		4E7AB1B023310B5500B4912B /* HomeFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedVC.swift; sourceTree = "<group>"; };
 		4E7AB1B223310B6F00B4912B /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
 		4E7AB1B423310D0500B4912B /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		4E7F3C6F232E69540029996A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		4E7F3C71232E69D30029996A /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		4E81DC1623323ADC00CDF09D /* PostssServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostssServices.swift; sourceTree = "<group>"; };
+		4E81DC1823323B3B00CDF09D /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		4E81DC1A23323BBA00CDF09D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		4E81DC1C233241DA00CDF09D /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		4E9AD582233210550073C59B /* FirebaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServices.swift; sourceTree = "<group>"; };
 		75BE92559AB016AC8241D098 /* Pods-Northern Nights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Northern Nights.debug.xcconfig"; path = "Target Support Files/Pods-Northern Nights/Pods-Northern Nights.debug.xcconfig"; sourceTree = "<group>"; };
 		C3B956CD0AEEC886AE542C69 /* Pods_Northern_Nights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Northern_Nights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				4E207B5C232E54BD00ED64EF /* AppDelegate.swift */,
+				4E9AD5812332103A0073C59B /* Services */,
 				4E207B70232E54D800ED64EF /* model */,
 				4E207B6F232E54D000ED64EF /* view */,
 				4E207B6E232E54C700ED64EF /* controller */,
@@ -113,7 +124,7 @@
 				4E7F3C71232E69D30029996A /* BaseVC.swift */,
 				4E7AB1B223310B6F00B4912B /* BaseCollectionVC.swift */,
 				4E7F3C73232E69DB0029996A /* Registration */,
-				4E7AB1B023310B5500B4912B /* HomeVC.swift */,
+				4E7AB1B023310B5500B4912B /* HomeFeedVC.swift */,
 				4E71442323311D1300030B65 /* ProfileVC.swift */,
 			);
 			path = controller;
@@ -131,6 +142,8 @@
 		4E207B70232E54D800ED64EF /* model */ = {
 			isa = PBXGroup;
 			children = (
+				4E81DC1823323B3B00CDF09D /* PostModel.swift */,
+				4E81DC1A23323BBA00CDF09D /* UserModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -154,6 +167,16 @@
 				4E7AB1AE2331092E00B4912B /* ResetPasswordVC.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		4E9AD5812332103A0073C59B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4E9AD582233210550073C59B /* FirebaseServices.swift */,
+				4E81DC1623323ADC00CDF09D /* PostssServices.swift */,
+				4E81DC1C233241DA00CDF09D /* UserServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		534D1F056BD31FA5051F4E5D /* Frameworks */ = {
@@ -299,15 +322,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E207B74232E5B5700ED64EF /* ExtensionUivew.swift in Sources */,
-				4E7AB1B123310B5500B4912B /* HomeVC.swift in Sources */,
+				4E81DC1923323B3B00CDF09D /* PostModel.swift in Sources */,
+				4E7AB1B123310B5500B4912B /* HomeFeedVC.swift in Sources */,
 				4E7AB1B323310B6F00B4912B /* BaseCollectionVC.swift in Sources */,
 				4E7F3C72232E69D30029996A /* BaseVC.swift in Sources */,
 				4E7AB1AD2331066700B4912B /* LoginVC.swift in Sources */,
+				4E81DC1723323ADC00CDF09D /* PostssServices.swift in Sources */,
 				4E207B5F232E54BD00ED64EF /* WelcomeVC.swift in Sources */,
+				4E81DC1B23323BBA00CDF09D /* UserModel.swift in Sources */,
 				4E207B5D232E54BD00ED64EF /* AppDelegate.swift in Sources */,
+				4E81DC1D233241DA00CDF09D /* UserServices.swift in Sources */,
 				4E7AB1AF2331092E00B4912B /* ResetPasswordVC.swift in Sources */,
 				4E71442423311D1300030B65 /* ProfileVC.swift in Sources */,
 				4E7F3C70232E69540029996A /* SignUpVC.swift in Sources */,
+				4E9AD583233210550073C59B /* FirebaseServices.swift in Sources */,
 				4E207B72232E5B1F00ED64EF /* LineButton.swift in Sources */,
 				4E7AB1B523310D0500B4912B /* HomeCell.swift in Sources */,
 				4E7AB1AB2331055800B4912B /* ExtensionsVC.swift in Sources */,

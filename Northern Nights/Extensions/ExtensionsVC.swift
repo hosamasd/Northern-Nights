@@ -10,6 +10,13 @@ import UIKit
 
 extension UIViewController {
     
+    func goToHomeVC()  {
+        let layout = UICollectionViewFlowLayout()
+        let home = HomeFeedVC(collectionViewLayout: layout)
+        let nav = UINavigationController(rootViewController: home)
+        present(nav, animated: true)
+    }
+    
     func createButtons(title: String,image:UIImage? = UIImage(),selector: Selector,color:UIColor,borderColor:CGColor) -> UIButton {
         let bt = UIButton()
         bt.setTitle(title, for: .normal)
@@ -40,6 +47,22 @@ extension UIViewController {
         sub.distribution = .fillProportionally
         
         return sub
+    }
+    
+    func showErrorFields(message:String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+    func createAlert(title:String,message:String)  {
+        
+    
+    let alertController = UIAlertController(title: "Login Error", message: message, preferredStyle: .alert)
+    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    alertController.addAction(okayAction)
+    present(alertController, animated: true, completion: nil)
     }
 }
 

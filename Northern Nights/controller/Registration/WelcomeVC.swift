@@ -44,7 +44,12 @@ class WelcomeVC: BaseVC {
         createAccount.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor,padding: .init(top: 0, left: 16, bottom: 20, right: 16))
     }
     
-    
+//    func goToHomeVC()  {
+//        let layout = UICollectionViewFlowLayout()
+//        let home = HomeFeedVC(collectionViewLayout: layout)
+//        let nav = UINavigationController(rootViewController: home)
+//        present(nav, animated: true)
+//    }
     
     
    @objc func handleSignEmail()  {
@@ -54,19 +59,25 @@ class WelcomeVC: BaseVC {
     }
     
     @objc func handleSignGoogle()  {
-        print(026)
+       GIDSignIn.sharedInstance().signIn()
     }
     
     @objc func handleSignFacebook()  {
-        let fbLoginManager = LoginManager()
-        fbLoginManager.logIn(permissions: ["email","public_profile"], from: self) { (res, err) in
+        
+        FirebaseServices.shared.loginUsingFacebook(vc: self) {[weak self] (err) in
             if let err = err {
-                print(err.localizedDescription);return
-            }
-            guard let token = AccessToken.current else {print("failed to get token"); return}
-            
-            let credintal = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
-            
+                self?.createAlert(title: "Error", message: err.localizedDescription);return
+        }
+            self?.goToHomeVC()
+//        let fbLoginManager = LoginManager()
+//        fbLoginManager.logIn(permissions: ["email","public_profile"], from: self) { (res, err) in
+//            if let err = err {
+//                print(err.localizedDescription);return
+//            }
+//            guard let token = AccessToken.current else {print("failed to get token"); return}
+//
+//            let credintal = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
+        
             // Perform login by calling Firebase APIs
 //            Auth.auth().signIn(with: credintal, completion: { (user, error) in
 //                if let error = error {
@@ -97,6 +108,7 @@ class WelcomeVC: BaseVC {
 }
 
 extension WelcomeVC:GIDSignInDelegate,GIDSignInUIDelegate {
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if error != nil {
@@ -109,24 +121,12 @@ extension WelcomeVC:GIDSignInDelegate,GIDSignInUIDelegate {
         
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
-        Auth.auth().signIn(with: credential, completion: { (user, error) in
-            if let error = error {
-                print("Login error: \(error.localizedDescription)")
-                let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-                let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(okayAction)
-                self.present(alertController, animated: true, completion: nil)
-                
-                return
+        Auth.auth().signIn(with: credential) {[weak self] (res, err) in
+            if let err = err{
+              self?.createAlert(title: "Login Error", message: err.localizedDescription);return
             }
-            
-//            // Present the main view
-//            if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
-//                UIApplication.shared.keyWindow?.rootViewController = viewController
-//                self.dismiss(animated: true, completion: nil)
-//            }
-        })
-        
+        }
+        self.goToHomeVC()
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

@@ -28,6 +28,8 @@ class SignUpVC: BaseVC {
        let tx = UITextField()
         tx.attributedPlaceholder = NSAttributedString(string: "enter your email",
                                                       attributes: [.foregroundColor: UIColor.white])
+        tx.text = "h@h.com"
+         tx.keyboardType = .emailAddress
          tx.constrainHeight(constant: 25)
         tx.textColor = .white
         return tx
@@ -36,6 +38,7 @@ class SignUpVC: BaseVC {
         let tx = UITextField()
         tx.attributedPlaceholder = NSAttributedString(string:  "enter your name",
                                                       attributes: [.foregroundColor: UIColor.white])
+         tx.text = "hosam"
         tx.constrainHeight(constant: 25)
         tx.textColor = .white
         return tx
@@ -45,6 +48,8 @@ class SignUpVC: BaseVC {
         tx.textColor = .white
         tx.attributedPlaceholder = NSAttributedString(string: "enter your password",
                                                       attributes: [.foregroundColor: UIColor.white])
+        tx.text = "123456"
+        tx.isSecureTextEntry = true
         tx.constrainHeight(constant: 25)
         return tx
     }()
@@ -91,6 +96,17 @@ class SignUpVC: BaseVC {
     }
     
   @objc  func handleSignUp()  {
-        print(123)
+    
+  guard  let email = emailTextField.text, !email.isEmpty,
+    let name = nameTextField.text, !name.isEmpty,
+    let pass = passwordTextField.text, !pass.isEmpty  else {showErrorFields(message: "all fields should be filled!") ;  return  }
+    
+    
+    FirebaseServices.shared.signUpFirebase( email: email, name: name, passowrd: pass) {[weak self] (err) in
+        if let err=err{
+            self?.showErrorFields(message: err.localizedDescription) ; return
+        }
+        self?.goToHomeVC()
+    }
     }
 }

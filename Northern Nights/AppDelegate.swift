@@ -28,12 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = WelcomeVC()
-//        let layout = UICollectionViewFlowLayout()
-//         window?.rootViewController = UINavigationController(rootViewController: HomeVC(collectionViewLayout: layout))
+        
+        checkLoginState()
+        
+        
         return true
     }
 
+    func checkLoginState()  {
+        if Auth.auth().currentUser == nil {
+            window?.rootViewController = WelcomeVC()
+        }else {
+            let layout = UICollectionViewFlowLayout()
+            window?.rootViewController = UINavigationController(rootViewController: HomeFeedVC(collectionViewLayout: layout))
+
+        }
+    }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         

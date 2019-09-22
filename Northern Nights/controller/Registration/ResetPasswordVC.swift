@@ -29,6 +29,7 @@ class ResetPasswordVC: BaseVC {
         tx.attributedPlaceholder = NSAttributedString(string: "enter your email",
                                                       attributes: [.foregroundColor: UIColor.white])
         tx.constrainHeight(constant: 25)
+         tx.keyboardType = .emailAddress
         tx.textColor = .white
         return tx
     }()
@@ -62,7 +63,14 @@ class ResetPasswordVC: BaseVC {
     
     
     @objc  func handleReset()  {
-        print(123)
+        guard let email = emailTextField.text, !email.isEmpty else {showErrorFields(message: "email field should be filled!") ;  return  }
+        
+        FirebaseServices.shared.resetPassword(email: email) { [weak self] (err) in
+            if let err=err{
+                self?.showErrorFields(message: err.localizedDescription) ; return
+            }
+            self?.createAlert(title: "Successfual", message: "we sent an message to your email \n please check it")
+        }
     }
     
     

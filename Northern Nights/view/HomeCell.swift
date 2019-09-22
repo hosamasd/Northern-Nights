@@ -7,8 +7,33 @@
 //
 
 import UIKit
+import SDWebImage
+
+protocol HomeCellProtocol {
+    func updateVotes(post:PostModel)
+}
 
 class HomeCell: UICollectionViewCell {
+    
+    var delgate:HomeCellProtocol?
+    
+    var post:PostModel!{
+        didSet{
+            let urlSring = post.imageUrl
+            guard let url = URL(string: urlSring) else { return  }
+            postImageView.sd_setImage(with: url)
+            loveButton.setTitle(String(post.votes ?? 0), for: .normal)
+            
+            UserServices.uerServices.getUserInfo(uid: post.fromId) { (user) in
+                self.profileInfoButton.setTitle(user.name, for: .normal)
+                let urlSring = user.imageUrl
+                guard let url = URL(string: urlSring) else { return  }
+                self.profileImageView.sd_setImage(with: url)
+            }
+            
+        }
+    }
+    
     
     let postImageView:UIImageView = {
         let im = UIImageView(image: #imageLiteral(resourceName: "_fjegpi89au-thomas-shellberg"))
@@ -26,10 +51,12 @@ class HomeCell: UICollectionViewCell {
 //        im.clipsToBounds = true
         return im
     }()
+    var loveButtonClousure: ((PostModel)->())?
+    
 //    let loveLabelText = UILabel(text: "203", font: .systemFont(ofSize: 18), textColor: .white)
     
-     lazy var loveButton = createButtons(title: "230", image: #imageLiteral(resourceName: "heart"), selector: #selector(handleLoved), color: UIColor.black, borderColor: UIColor.white.cgColor)
-    lazy var profileInfoButton = createButtons(title: "name sas", image: profileImageView.image, selector: #selector(handleProfileInfo), color: UIColor.black, borderColor: UIColor.black.cgColor)
+     lazy var loveButton = createButtons(title: "", image: #imageLiteral(resourceName: "heart"), selector: #selector(handleLoved), color: UIColor.black, borderColor: UIColor.white.cgColor)
+    lazy var profileInfoButton = createButtons(title: "", image: profileImageView.image, selector: #selector(handleProfileInfo), color: UIColor.black, borderColor: UIColor.black.cgColor)
       lazy var downloadButton = createButtons(title: "", image: #imageLiteral(resourceName: "Download").withRenderingMode(.alwaysTemplate), selector: #selector(handleDownload), color: UIColor.black, borderColor: UIColor.black.cgColor)
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,7 +75,7 @@ class HomeCell: UICollectionViewCell {
     }
     
    @objc func handleLoved()  {
-        print(023)
+    delgate?.updateVotes(post:post)
     }
     
     @objc func handleProfileInfo()  {

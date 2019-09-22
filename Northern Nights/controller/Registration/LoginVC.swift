@@ -28,6 +28,8 @@ class LoginVC: BaseVC {
         let tx = UITextField()
         tx.attributedPlaceholder = NSAttributedString(string: "enter your email",
                                                       attributes: [.foregroundColor: UIColor.white])
+       tx.text = "h@h.com"
+        tx.keyboardType = .emailAddress
         tx.constrainHeight(constant: 25)
         tx.textColor = .white
         return tx
@@ -37,6 +39,8 @@ class LoginVC: BaseVC {
         tx.textColor = .white
         tx.attributedPlaceholder = NSAttributedString(string: "enter your password",
                                                       attributes: [.foregroundColor: UIColor.white])
+        tx.isSecureTextEntry = true
+        tx.text = "123456"
         tx.constrainHeight(constant: 25)
         return tx
     }()
@@ -53,7 +57,6 @@ class LoginVC: BaseVC {
     lazy var forgetPasswordButton = createButtons(title: "Forget Password?", selector: #selector(handleForget), color: UIColor.clear, borderColor: UIColor.clear.cgColor)
     override func setupViews()  {
         view.backgroundColor = .white
-        
         
         let emailStack = groupedStack(image: #imageLiteral(resourceName: "email") , text: emailTextField)
         let passwordStack = groupedStack(image: #imageLiteral(resourceName: "lock") , text: passwordTextField)
@@ -83,7 +86,16 @@ class LoginVC: BaseVC {
     }
     
     @objc  func handleLogin()  {
-        print(123)
+        guard let email = emailTextField.text, !email.isEmpty,
+            let pass = passwordTextField.text, !pass.isEmpty  else {showErrorFields(message: "all fields should be filled!") ;  return  }
+        
+        FirebaseServices.shared.loginFirebase(email: email, pass: pass) { [weak self] (err) in
+            if let err=err{
+                self?.showErrorFields(message: err.localizedDescription) ; return
+            }
+            self?.goToHomeVC()
+            
+        }
     }
     
     @objc  func handleForget()  {
