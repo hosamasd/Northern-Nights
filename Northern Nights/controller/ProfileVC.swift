@@ -49,6 +49,8 @@ class ProfileVC: BaseVC {
         loadUserInfo()
     }
     
+     //MARK: -user methods
+    
     override func setupViews() {
         view.backgroundColor = .white
         
@@ -68,14 +70,14 @@ class ProfileVC: BaseVC {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
     }
     
-    func loadUserInfo()  {
+   fileprivate func  loadUserInfo()  {
        
         UserServices.uerServices.getUserInfo(uid: uid) { (user) in
             self.putData(user:user)
         }
     }
     
-    func putData(user:UserModel)  {
+  fileprivate  func  putData(user:UserModel)  {
         UserServices.uerServices.getNumberOfPhotosFromUser(uid: user.uid) { (count) in
             self.userPhotosLabelText.text = "\(count) Photos"
         }
@@ -85,7 +87,9 @@ class ProfileVC: BaseVC {
         self.profileImageView.sd_setImage(with: url)
     }
     
-    @objc func handleCancel()  {
+    //TODO: -handle methods
+    
+    @objc fileprivate func handleCancel()  {
         dismiss(animated: true)
     }
     
@@ -98,7 +102,7 @@ class ProfileVC: BaseVC {
         }
     }
     
-   @objc func handleChooseImage()  {
+   @objc fileprivate func handleChooseImage()  {
     let imagePicker = UIImagePickerController()
     imagePicker.delegate = self
     imagePicker.sourceType = .photoLibrary

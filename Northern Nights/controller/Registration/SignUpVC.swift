@@ -18,19 +18,19 @@ class SignUpVC: BaseVC {
     }()
     
     let image:UIImageView = {
-       let image =  UIImageView(backgroundColor: .gray)
-    image.constrainWidth(constant: 25)
-    image.constrainHeight(constant: 25)
+        let image =  UIImageView(backgroundColor: .gray)
+        image.constrainWidth(constant: 25)
+        image.constrainHeight(constant: 25)
         return image
     }()
     
     lazy var emailTextField:UITextField = {
-       let tx = UITextField()
+        let tx = UITextField()
         tx.attributedPlaceholder = NSAttributedString(string: "enter your email",
                                                       attributes: [.foregroundColor: UIColor.white])
         tx.text = "h@h.com"
-         tx.keyboardType = .emailAddress
-         tx.constrainHeight(constant: 25)
+        tx.keyboardType = .emailAddress
+        tx.constrainHeight(constant: 25)
         tx.textColor = .white
         return tx
     }()
@@ -38,7 +38,7 @@ class SignUpVC: BaseVC {
         let tx = UITextField()
         tx.attributedPlaceholder = NSAttributedString(string:  "enter your name",
                                                       attributes: [.foregroundColor: UIColor.white])
-         tx.text = "hosam"
+        tx.text = "hosam"
         tx.constrainHeight(constant: 25)
         tx.textColor = .white
         return tx
@@ -56,13 +56,15 @@ class SignUpVC: BaseVC {
     let dividersView:[UIView] = {
         let v = [UIView(),UIView(),UIView(),]
         v.forEach({ (s) in
-           s.constrainHeight(constant: 1)
+            s.constrainHeight(constant: 1)
             s.backgroundColor = .gray
         })
         
         return v
     }()
     lazy var signUpButton = createButtons(title: "Sign Up", selector: #selector(handleSignUp), color: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1), borderColor: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1).cgColor)
+    
+     //MARK: -user methods
     
     override func setupViews()  {
         view.backgroundColor = .white
@@ -74,15 +76,15 @@ class SignUpVC: BaseVC {
         view.addSubViews(views: mainImageView,nameStack,dividersView[0],emailStack,dividersView[1],passwordStack,dividersView[2],signUpButton)
         
         mainImageView.fillSuperview()
-         nameStack.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 40, left: 16, bottom: 0, right: 16))
-
+        nameStack.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 40, left: 16, bottom: 0, right: 16))
+        
         dividersView[0].anchor(top: nameStack.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 8, left: 16, bottom: 0, right: 16))
         emailStack.anchor(top: dividersView[0].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
         dividersView[1].anchor(top: emailStack.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 8, left: 16, bottom: 0, right: 16))
-         passwordStack.anchor(top: dividersView[1].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+        passwordStack.anchor(top: dividersView[1].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
         dividersView[2].anchor(top: passwordStack.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 8, left: 16, bottom: 0, right: 16))
         
-         signUpButton.anchor(top: dividersView[2].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+        signUpButton.anchor(top: dividersView[2].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
     }
     
     override func setupNavitagionItems() {
@@ -90,23 +92,24 @@ class SignUpVC: BaseVC {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
     }
     
+    //TODO: -handle methods
     
-  @objc  func handleCancel()  {
+    @objc fileprivate  func handleCancel()  {
         dismiss(animated: true)
     }
     
-  @objc  func handleSignUp()  {
-    
-  guard  let email = emailTextField.text, !email.isEmpty,
-    let name = nameTextField.text, !name.isEmpty,
-    let pass = passwordTextField.text, !pass.isEmpty  else {showErrorFields(message: "all fields should be filled!") ;  return  }
-    
-    
-    FirebaseServices.shared.signUpFirebase( email: email, name: name, passowrd: pass) {[weak self] (err) in
-        if let err=err{
-            self?.showErrorFields(message: err.localizedDescription) ; return
+    @objc fileprivate  func handleSignUp()  {
+        
+        guard  let email = emailTextField.text, !email.isEmpty,
+            let name = nameTextField.text, !name.isEmpty,
+            let pass = passwordTextField.text, !pass.isEmpty  else {showErrorFields(message: "all fields should be filled!") ;  return  }
+        
+        
+        FirebaseServices.shared.signUpFirebase( email: email, name: name, passowrd: pass) {[weak self] (err) in
+            if let err=err{
+                self?.showErrorFields(message: err.localizedDescription) ; return
+            }
+            self?.goToHomeVC()
         }
-        self?.goToHomeVC()
-    }
     }
 }

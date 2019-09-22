@@ -31,6 +31,8 @@ class WelcomeVC: BaseVC {
         GIDSignIn.sharedInstance()?.uiDelegate = self
     }
     
+    //MARK: -user methods
+    
     override func setupViews()  {
         let groupButtons = view.verticalStackView(arragedSubViews: signWithEmail,signWithFacebook,signWithGoogle, spacing: 10, distribution: .fillEqually, axis: .vertical)
         groupButtons.translatesAutoresizingMaskIntoConstraints = false
@@ -44,67 +46,34 @@ class WelcomeVC: BaseVC {
         createAccount.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor,padding: .init(top: 0, left: 16, bottom: 20, right: 16))
     }
     
-    //    func goToHomeVC()  {
-    //        let layout = UICollectionViewFlowLayout()
-    //        let home = HomeFeedVC(collectionViewLayout: layout)
-    //        let nav = UINavigationController(rootViewController: home)
-    //        present(nav, animated: true)
-    //    }
+    //TODO: -handle methods
     
-    
-    @objc func handleSignEmail()  {
+    @objc fileprivate func handleSignEmail()  {
         let login = LoginVC()
         let nav = UINavigationController(rootViewController: login)
         present(nav, animated: true)
     }
     
-    @objc func handleSignGoogle()  {
+    @objc fileprivate func handleSignGoogle()  {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    @objc func handleSignFacebook()  {
+    @objc fileprivate func handleSignFacebook()  {
         
         FirebaseServices.shared.loginUsingFacebook(vc: self) {[weak self] (err) in
             if let err = err {
                 self?.createAlert(title: "Error", message: err.localizedDescription);return
             }
             self?.goToHomeVC()
-            //        let fbLoginManager = LoginManager()
-            //        fbLoginManager.logIn(permissions: ["email","public_profile"], from: self) { (res, err) in
-            //            if let err = err {
-            //                print(err.localizedDescription);return
-            //            }
-            //            guard let token = AccessToken.current else {print("failed to get token"); return}
-            //
-            //            let credintal = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
-            
-            // Perform login by calling Firebase APIs
-            //            Auth.auth().signIn(with: credintal, completion: { (user, error) in
-            //                if let error = error {
-            //                    print("Login error: \(error.localizedDescription)")
-            //                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-            //                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            //                    alertController.addAction(okayAction)
-            //                    self.present(alertController, animated: true, completion: nil)
-            //
-            //                    return
-            //                }
-            //
-            //                // Present the main view
-            //                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
-            //                    UIApplication.shared.keyWindow?.rootViewController = viewController
-            //                    self.dismiss(animated: true, completion: nil)
-            //                }
-            //
-            //            })
         }
     }
     
-    @objc func handleCreateAccount()  {
+    @objc fileprivate func handleCreateAccount()  {
         let signup = SignUpVC()
         let nav = UINavigationController(rootViewController: signup)
         present(nav, animated: true)
     }
+    
 }
 
 extension WelcomeVC:GIDSignInDelegate,GIDSignInUIDelegate {

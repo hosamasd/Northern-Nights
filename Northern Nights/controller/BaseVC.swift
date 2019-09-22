@@ -16,6 +16,8 @@ class BaseVC: UIViewController {
         setupNavitagionItems()
     }
     
+     //MARK: -user methods
+    
     func setupViews()  {
     }
     

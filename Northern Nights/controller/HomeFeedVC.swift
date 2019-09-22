@@ -44,7 +44,9 @@ class HomeFeedVC: BaseCollectionVC {
         return .init(width: view.frame.width, height: 250)
     }
     
-    func fetchPosts ()  {
+     //MARK: -user methods
+    
+   fileprivate func  fetchPosts ()  {
         postsArray.removeAll()
 //        PostssServices.postssServices.fetchPostsFromDatabase(fromId: UserServices.uerServices.currentUserId)
         PostssServices.postssServices.fetchPostsFromDatabase(fromId: UserServices.uerServices.currentUserId) { (post) in
@@ -52,7 +54,7 @@ class HomeFeedVC: BaseCollectionVC {
         }
     }
     
-    func sortArray(post:PostModel)  {
+   fileprivate func  sortArray(post:PostModel)  {
         postsArray.append(post)
         postsArray = postsArray.sorted(by: {$0.timestamp > $1.timestamp})
         DispatchQueue.main.async {
@@ -72,14 +74,16 @@ class HomeFeedVC: BaseCollectionVC {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(handleTakePicture))
     }
     
-   @objc func handleTakePicture()  {
+    //TODO: -handle methods
+    
+   @objc fileprivate func handleTakePicture()  {
     let imagePicker = ImagePickerController()
     imagePicker.delegate = self
     imagePicker.imageLimit = 1
     present(imagePicker, animated: true)
     }
     
-   @objc func handleProfile()  {
+   @objc fileprivate func handleProfile()  {
     let profile = ProfileVC(uid: UserServices.uerServices.currentUserId)
     let nav = UINavigationController(rootViewController: profile)
     

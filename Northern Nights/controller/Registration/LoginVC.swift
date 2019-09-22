@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginVC: BaseVC {
-
+    
     let mainImageView:UIImageView = {
         let im = UIImageView(image: #imageLiteral(resourceName: "_fjegpi89au-thomas-shellberg"))
         im.contentMode = .scaleAspectFill
@@ -28,7 +28,7 @@ class LoginVC: BaseVC {
         let tx = UITextField()
         tx.attributedPlaceholder = NSAttributedString(string: "enter your email",
                                                       attributes: [.foregroundColor: UIColor.white])
-       tx.text = "h@h.com"
+        tx.text = "h@h.com"
         tx.keyboardType = .emailAddress
         tx.constrainHeight(constant: 25)
         tx.textColor = .white
@@ -55,7 +55,10 @@ class LoginVC: BaseVC {
     }()
     lazy var loginButton = createButtons(title: "Login", selector: #selector(handleLogin), color: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1), borderColor: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1).cgColor)
     lazy var forgetPasswordButton = createButtons(title: "Forget Password?", selector: #selector(handleForget), color: UIColor.clear, borderColor: UIColor.clear.cgColor)
-    override func setupViews()  {
+    
+    //MARK: -user methods
+    
+    override  func setupViews()  {
         view.backgroundColor = .white
         
         let emailStack = groupedStack(image: #imageLiteral(resourceName: "email") , text: emailTextField)
@@ -68,10 +71,10 @@ class LoginVC: BaseVC {
         dividersView[0].anchor(top: emailStack.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 8, left: 16, bottom: 0, right: 16))
         passwordStack.anchor(top: dividersView[0].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
         dividersView[1].anchor(top: passwordStack.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 8, left: 16, bottom: 0, right: 16))
-       
+        
         
         loginButton.anchor(top: dividersView[1].bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
-         forgetPasswordButton.anchor(top: loginButton.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+        forgetPasswordButton.anchor(top: loginButton.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 16, left: 16, bottom: 0, right: 16))
     }
     
     override func setupNavitagionItems() {
@@ -79,13 +82,13 @@ class LoginVC: BaseVC {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
     }
     
-   
+    //TODO: -handle methods
     
-    @objc  func handleCancel()  {
+    @objc fileprivate func handleCancel()  {
         dismiss(animated: true)
     }
     
-    @objc  func handleLogin()  {
+    @objc fileprivate func handleLogin()  {
         guard let email = emailTextField.text, !email.isEmpty,
             let pass = passwordTextField.text, !pass.isEmpty  else {showErrorFields(message: "all fields should be filled!") ;  return  }
         
@@ -98,7 +101,7 @@ class LoginVC: BaseVC {
         }
     }
     
-    @objc  func handleForget()  {
+    @objc fileprivate func handleForget()  {
         let reset = ResetPasswordVC()
         navigationController?.pushViewController(reset, animated: true)
     }

@@ -40,6 +40,9 @@ class ResetPasswordVC: BaseVC {
         return v
     }()
     lazy var resetButton = createButtons(title: "Reset My Password", selector: #selector(handleReset), color: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1), borderColor: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1).cgColor)
+    
+     //MARK: -user methods
+    
     override func setupViews()  {
         view.backgroundColor = .white
         
@@ -57,12 +60,15 @@ class ResetPasswordVC: BaseVC {
         resetButton.anchor(top: dividersView.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 24, left: 16, bottom: 0, right: 16))
     }
     
+    
+    
     override func setupNavitagionItems() {
         navigationItem.title = "Reset Password"
     }
     
+     //TODO: -handle methods
     
-    @objc  func handleReset()  {
+    @objc fileprivate func handleReset()  {
         guard let email = emailTextField.text, !email.isEmpty else {showErrorFields(message: "email field should be filled!") ;  return  }
         
         FirebaseServices.shared.resetPassword(email: email) { [weak self] (err) in

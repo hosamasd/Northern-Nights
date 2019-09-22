@@ -16,6 +16,8 @@ class BaseCollectionVC: UICollectionViewController,UICollectionViewDelegateFlowL
         setupNavigations()
     }
     
+     //MARK: -user methods
+    
     func setupCollection()  {
         
     }
