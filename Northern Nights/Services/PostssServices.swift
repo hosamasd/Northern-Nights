@@ -91,7 +91,7 @@ class PostssServices {
                     }
                     if let url = url {
                         
-                        let values: [String:Any] = ["imageUrl":url.absoluteString,
+                        let values: [String:Any] = ["postImageUrl":url.absoluteString,
                                                     "timestamp":date ,"votes":0,"fromId":uid]
                         
                         completion(values,nil)
@@ -172,62 +172,6 @@ class PostssServices {
         }
     }
     
-    
-    
-    //    func fetchPostsFromDatabase(fromId:String)  {
-    //
-    //        Database.database().reference(withPath: "Posts").observe(.childAdded) { (snapshot) in
-    //            let key = snapshot.key
-    //
-    ////            Database.database().reference(withPath: "Posts").child(key).observe(.childAdded, with: { (snap) in
-    ////                if let dict = snap.value as? [String:Any]{
-    ////                    let message = PostModel(dict: dict)
-    ////                    completion(message)
-    ////
-    ////                }
-    ////            })
-    //        }
-    //
-    //    }
-    
-    
-    
-    
-    
-    //    func fetchAllMessagesFromDatabase(fromId:String,completion: @escaping (String,MessageModel)->())  {
-    //
-    //        Database.database().reference(withPath: "User-Messages").child(fromId).observe(.childAdded) { (snapshot) in
-    //            let key = snapshot.key
-    //            Database.database().reference(withPath: "User-Messages").child(fromId).child(key).observe(.childAdded) { (snap) in
-    //                let keys = snap.key
-    //                Database.database().reference(withPath: "Inbox").child(keys).observe(.value, with: { (ss) in
-    //                    if let dict = ss.value as? [String:Any]{
-    //                        let messages = MessageModel(dict: dict)
-    //
-    //                        completion(key,messages)
-    //                    }
-    //                })
-    //
-    //
-    //            }
-    //
-    //
-    //        }
-    //    }
-    //
-    //    fileprivate func getGenericData(uid:String,completion: @escaping (UserModel)->())  {
-    //        Database.database().reference(withPath: "Users").child(uid).observe(.value) { (snapshot) in
-    //            if let dict = snapshot.value as? [String:Any]{
-    //                let user = UserModel(dict: dict)
-    //                completion(user)
-    //            }
-    //        }
-    //    }
-    //
-    //    func getUserInfo(uid:String,completion: @escaping (UserModel)->())  {
-    //        getGenericData(uid: uid, completion: completion)
-    //    }
-    //
     
     
     

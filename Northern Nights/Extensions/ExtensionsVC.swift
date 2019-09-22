@@ -76,7 +76,7 @@ extension UICollectionViewCell {
         bt.imageView?.layer.cornerRadius = 24
          bt.imageView?.clipsToBounds = true
         bt.imageEdgeInsets = .init(top: 0, left: -10, bottom: 0, right: 0)
-        bt.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
+        bt.titleEdgeInsets = .init(top: 0, left: 30, bottom: 0, right: 0)
         bt.addTarget(self, action: selector, for: .touchUpInside)
         bt.layer.cornerRadius = 8
 //        bt.backgroundColor = color

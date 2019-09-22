@@ -41,7 +41,7 @@ class ProfileVC: BaseVC {
         return image
     }()
     let usernameLabelText = UILabel(text: "hosam", font: .systemFont(ofSize: 24), textColor: .white, textAlignment: .center)
-     let userPhotosLabelText = UILabel(text: "303 photos", font: .systemFont(ofSize: 20), textColor: .white, textAlignment: .center)
+     let userPhotosLabelText = UILabel(text: "0 photos", font: .systemFont(ofSize: 20), textColor: .white, textAlignment: .center)
      lazy var logoutButton = createButtons(title: "Logout", selector: #selector(handleLogout), color: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1), borderColor: #colorLiteral(red: 0.3960784314, green: 0.8078431373, blue: 0.5450980392, alpha: 1).cgColor)
     
     override func viewDidLoad() {

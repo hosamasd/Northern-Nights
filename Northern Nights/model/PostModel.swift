@@ -10,16 +10,16 @@ import Foundation
 
 struct PostModel {
     
-    let fromId,imageUrl,childAuto:String
-    let date:Double
+    let fromId,postImageUrl,childAuto:String
+    let timestamp:Double
      let votes: Int
     
     init(dict:[String:Any]) {
-        self.date = dict["date"] as? Double ?? 0.0
+        self.timestamp = dict["timestamp"] as? Double ?? 0.0
         self.fromId = dict["fromId"] as? String ?? ""
         
         self.votes = dict["votes"] as? Int ?? 0
-        self.imageUrl = dict["imageUrl"] as? String ?? ""
+        self.postImageUrl = dict["postImageUrl"] as? String ?? ""
         self.childAuto = dict["childAuto"] as? String ?? ""
     }
 }

@@ -22,6 +22,7 @@ class HomeFeedVC: BaseCollectionVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchPosts()
+        print(UserServices.uerServices.currentUserId)
     }
     
    
@@ -53,7 +54,7 @@ class HomeFeedVC: BaseCollectionVC {
     
     func sortArray(post:PostModel)  {
         postsArray.append(post)
-        postsArray = postsArray.sorted(by: {$0.date > $1.date})
+        postsArray = postsArray.sorted(by: {$0.timestamp > $1.timestamp})
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
