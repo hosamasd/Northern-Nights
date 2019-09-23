@@ -1,5 +1,28 @@
 # Northern-Nights
 Simple app for share images with friends using firebase database and include login with facebook and google.
+This is pods are used in project 
+//
+pod 'Firebase/Storage’
+pod 'Firebase/Auth’
+pod 'Firebase/Core’
+pod 'SDWebImage'
+pod 'ProgressHUD'
+pod 'Firebase/Database'
+
+pod 'ImagePicker'
+pod 'SDWebImage'
+pod 'ProgressHUD'
+
+# Pods for Facebook
+pod 'Bolts'
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+
+# Pods for Google Sign In
+pod 'GoogleSignIn'
+
+//
+
 ![welcome](https://user-images.githubusercontent.com/34996617/65389343-7cf68480-dd55-11e9-9145-31835579e441.png)
 ![home](https://user-images.githubusercontent.com/34996617/65389344-7d8f1b00-dd55-11e9-9b11-bab7a235cc25.png)
 ![profile](https://user-images.githubusercontent.com/34996617/65389345-7d8f1b00-dd55-11e9-8f88-9908bb6284cb.png)
