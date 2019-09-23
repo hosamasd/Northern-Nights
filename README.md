@@ -2,12 +2,13 @@
 Simple app for share images with friends using firebase database and include login with facebook and google.
 This is pods are used in project 
 //
+# Pods for Firebase
 pod 'Firebase/Storage’
 pod 'Firebase/Auth’
 pod 'Firebase/Core’
-pod 'SDWebImage'
-pod 'ProgressHUD'
 pod 'Firebase/Database'
+
+
 
 pod 'ImagePicker'
 pod 'SDWebImage'
