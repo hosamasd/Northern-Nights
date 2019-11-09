@@ -25,6 +25,9 @@ pod 'SDWebImage'
 pod 'ProgressHUD'
 
 
+demo video.
+![Alt Text](https://j.gifs.com/MwBBY3.gif)
+
 ![welcome](https://user-images.githubusercontent.com/34996617/65389343-7cf68480-dd55-11e9-9145-31835579e441.png)
 ![home](https://user-images.githubusercontent.com/34996617/65389344-7d8f1b00-dd55-11e9-9b11-bab7a235cc25.png)
 ![profile](https://user-images.githubusercontent.com/34996617/65389345-7d8f1b00-dd55-11e9-8f88-9908bb6284cb.png)
